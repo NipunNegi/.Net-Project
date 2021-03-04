@@ -1,0 +1,14 @@
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\BL.dll
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\BL.pdb
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\BO.dll
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\DAL.dll
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\EntityFramework.dll
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\BO.pdb
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\DAL.pdb
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\DAL.dll.config
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\bin\Debug\EntityFramework.xml
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\obj\Debug\BL.csprojAssemblyReference.cache
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\obj\Debug\BL.csproj.CopyComplete
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\obj\Debug\BL.dll
+E:\DotNet\DotNetFramework\HotelManagementApp\BL\obj\Debug\BL.pdb

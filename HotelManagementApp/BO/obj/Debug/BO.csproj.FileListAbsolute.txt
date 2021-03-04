@@ -1,0 +1,6 @@
+E:\DotNet\DotNetFramework\HotelManagementApp\BO\bin\Debug\BO.dll
+E:\DotNet\DotNetFramework\HotelManagementApp\BO\bin\Debug\BO.pdb
+E:\DotNet\DotNetFramework\HotelManagementApp\BO\obj\Debug\BO.csprojAssemblyReference.cache
+E:\DotNet\DotNetFramework\HotelManagementApp\BO\obj\Debug\BO.csproj.CoreCompileInputs.cache
+E:\DotNet\DotNetFramework\HotelManagementApp\BO\obj\Debug\BO.dll
+E:\DotNet\DotNetFramework\HotelManagementApp\BO\obj\Debug\BO.pdb

@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-fixed-top ">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Hotel Management", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse navbar-light">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-light">
+                    @*<li>@Html.ActionLink("SignIn", "SignIn", "Home")</li>
+        <li>@Html.ActionLink("SignOut","SignOut","Home")</li>*@
+                    <li class="LoginLi Logout"><span id="LogoutButton" onclick="Logout()" role="button">Sign Out</span></li>
+                    <li class="LoginLi"><span id="LoginButton" class="" data-toggle="modal" data-target="#LogInModal" role="button">SignIn</span></li>
+                    <li>@Html.ActionLink("Register", "Register", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <h1> Account Created Successfully</h1>
+                </div>
+            </div>
+        </div>
+        @*<---------------------LoginModel---------------->*@
+        <div class="modal fade" id="LogInModal" tabindex="-1" role="dialog" aria-labelledby="LogInModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="LogInModalLabel">Sign In</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form method="post" action="Home/SignIn">
+                            <h5 class="text-danger" id="WrongLogin"></h5>
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="staticEmail" name="email" required placeholder="email@xyz.com">
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="inputPassword" required name="password" placeholder="Password">
+                                    <div class="passwordValidation"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                @*<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#RegisterModal" data-dismiss="modal">Register</button>*@
+                                <button type="button" class="btn btn-primary" onclick="LogInData()">SignIn</button>
+                                <a class="btn btn-primary RegisterButton" href="Home/Register">Register</a>
+
+                            </div>
+                        </form>
+                    </div>
+                    @*<div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>*@
+                </div>
+            </div>
+
+            @*<---------------------   Register Modal  ---------------->*@
+            <!--<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="RegisterModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="RegisterModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form>
+                        <div class="form-group row">
+                            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="LastName" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="FirstName" name="LastName" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Address" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Register</button>
+                            <button type="submit" class="btn btn-primary">SignIn</button>
+                        </div>
+                    </form>
+                </div>-->
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>*@
+            <!--</div>
+        </div>-->
+        </div>
+        @*<-------------------------End of Register Modal ------------------------>*@
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+   
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+<script>
+    $(document).ready(function () {
+        if (sessionStorage["Login"]) {
+            $(".LoginLi").css("display", "none");
+            $(".Logout").css("display", "flex");
+        }
+        else {
+            $(".LoginLi").css("display", "flex");
+            $(".Logout").css("display", "none");
+        }
+
+    });
+    function Logout() {
+        sessionStorage.clear();
+        $(".LoginLi").css("display", "flex");
+        $(".Logout").css("display", "none");
+    }
+    function LogInData(){      
+        var value1 = $("#staticEmail").val();
+        var value2 = $("#inputPassword").val();
+        
+        $.ajax({
+            // url: "Url.Action("Test", "Student")",
+            type: "POST",
+            url: "Home/SignIn?email=" + value1+ "&password=" + value2,
+            success: function (result, status, xhr) {
+               
+                if (result)
+                {
+                    $("#WrongLogin").text("");
+                    $("#LogInModal").modal("hide");
+                    sessionStorage.setItem("Login", true);
+                    $(".LoginLi").css("display", "none");
+                    $(".Logout").css("display", "flex");
+                }            
+                else
+                    $("#WrongLogin").text("Email and Password is wrong");
+            },
+            error: {
+
+            }
+        });
+    }
+</script>
+       
+</body>
+</html>
